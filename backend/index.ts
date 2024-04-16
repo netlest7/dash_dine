@@ -41,9 +41,9 @@ app.use(cors())
 //     }
 //   });
 
-app.use("/graphql",expressMiddleware(apolloServer),{
-    context: async() => {}
-})
+app.use("/graphql",expressMiddleware(apolloServer,{
+    context: async({req,res}) => {return {req,res}}
+}))
 
 
 app.listen(4000,()=> console.log("Server is listening to port 4000...."))

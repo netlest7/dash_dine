@@ -1,9 +1,7 @@
 
 import { Response } from "express";
 export const sendToken = async(res: Response ,user: any ,message : String,statusCode = 200) => {
-    console.log("Hello from send token");
-    
-        const token = user.getJwtToken();
+        const token = await user.getJwtToken();
 
         const options = {
             expires:new Date(Date.now()+60*24*60*60*1000),
@@ -13,4 +11,7 @@ export const sendToken = async(res: Response ,user: any ,message : String,status
 
 
         res.cookie("token",token,options);
+        
+
+        
 }

@@ -23,6 +23,7 @@ type Query{
 
 type Mutation{
     createUser(owner_name: String!,owner_email: String!, owner_password: String! ) : User
+    loginUser(owner_email: String!, owner_password: String! ) : User
 }
 `
 

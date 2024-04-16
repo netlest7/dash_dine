@@ -1,6 +1,6 @@
 
 import Owner from "../db/Schemas/ownerSchema";
-import { UserSignInput } from "../constants/types";
+import { UserLoginInput, UserSignInput } from "../constants/types";
 import bcrypt from 'bcryptjs';
 import { storeIdGenerator } from "../helpers/storeIdGenerator";
 import { sendToken } from "../helpers/sendToken";
@@ -21,14 +21,12 @@ const ownerResolvers = {
 
     Mutation: {
         createUser: async(_ : any,params : UserSignInput,context: any)=> {
-            const somedate = await context.req.body()
-            console.log(somedate);
                    
                 const {owner_name,owner_email,owner_password} = params;
                 const isUserExisist = await Owner.findOne({owner_email});
 
                 if(isUserExisist){
-                    return new Error("User already exists")
+                    return new Error("User already exists");
                 }
 
                 // creating Store id
@@ -45,14 +43,26 @@ const ownerResolvers = {
                     }
                 })
                   // creating token and storing in cookie
-                  console.log("Great");
-
-             
-                 
-                
                 await sendToken(context.res,user,"Registered SuccessFull",201);
-                console.log("lund");
                 
+                return user;
+        },
+
+        loginUser: async(_: any , params: UserLoginInput, context: any) => {
+                const {owner_email,owner_password} = params;
+
+                if(!owner_email || !owner_password) {
+                    return new Error("Please enter all feild.")
+                }
+
+                const user = await Owner.findOne({owner_email});
+
+                if(!user) {
+                    return new Error("Email or password doesn't match with the account.")
+                }
+
+                await sendToken(context.res,user,"User Login SuccessFull",201);
+
                 return user;
         }
     }
