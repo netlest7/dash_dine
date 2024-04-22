@@ -1,0 +1,64 @@
+/* CustomSlider.css */
+.slider-container {
+    width: 100%; /* Ensure the slider takes full width of its container */
+    display: flex; /* Display the slider as a flex container */
+    justify-content: center; /* Center the slider horizontally */
+  }
+  
+  .slider {
+    width: 94%; /* Set the width of the slider to 94% of its container (accounting for the 3% margin on each side) */
+  }
+  
+  .slide {
+    margin: 0 ; /* Add a margin of 3% on each side */
+    border-radius: 10px; /* Round the corners */
+    width: 30%; /* Set the width of each slide to 30% of the parent container */
+    overflow: hidden; /* Ensure the image doesn't overflow its container */
+  }
+  
+  .slide img {
+    width: 100%; /* Ensure the image fills the slide */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: cover; /* Maintain aspect ratio and cover entire slide */
+    border-radius: 10px; /* In case the image doesn't fill the slide, ensure its corners are rounded */
+  }
+  .slick-dots li button:before {
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '▬';
+    text-align: right;
+    opacity: .25;
+    color: rgb(255, 255, 255);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    /* padding: 0; */
+    cursor: pointer;
+}
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+.slick-dots {
+    position: absolute;
+    bottom: 14%;
+    left: 23%;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}

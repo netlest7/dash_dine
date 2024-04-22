@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Popins';
+  src: url('../../resorce/Poppins-SemiBold.ttf');
+  font-weight: 600; /* Specify the font weight */
+}
+ 
+
+
+@font-face {
+  font-family: 'PopinsRegular';
+  src: url('../../resorce/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Popinsbold';
+  src: url('../../resorce/Poppins-Bold.ttf');
+  
+}
+@font-face {
+  font-family: 'interMediate';
+  src: url('../.././resorce/interMediate.ttf');
+  
+}
+.interMediate{
+  font-family: interMediate;
+}
+.PopinsRegular{
+  font-family:PopinsRegular ;
+}
+.Popinsbold{
+  font-family:Popinsbold ;
+}
+.Popins{
+  font-family:Popins ;
+}
+.homebackdiv {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  z-index: 3;
+}
+
+.cafaname {
+  position: relative;
+  /* Position the cafaname absolutely relative to the .Back div */
+  color: black;
+  font-size: 30px;
+  z-index: 2;
+  top: 25%;
+  text-align: center;
+  text-decoration: solid;
+  font-family: Popins;
+
+}
+
+#logo {
+  width: 40%;
+
+  position: relative;
+  z-index: 4;
+  top: 40%;
+  /* Center the cafaname vertically */
+  left: 50%;
+  /* Center the cafaname horizontally */
+  transform: translate(-50%, -50%);
+}
+
+.GS {
+  position: relative;
+ 
+ 
+  left: 10%;
+  top: 50vh;
+  
+ 
+}
+.dd{
+  position: relative;
+  /* Position the cafaname absolutely relative to the .Back div */
+  color: black;
+  font-size: 20px;
+  z-index: 2;
+  top: 65vh;
+  text-align: center;
+  text-decoration: solid;
+  font-family: PopinsRegular;
+}
+.iconwithlabe{
+  display: flex;
+  position: relative;
+  margin-top: 15%;
+}
+.brandlable{
+ 
+  z-index: 1;
+  font-weight: bold;
+  font-family: 'Popinsbold'; /* Corrected font family name */
+  text-align: center;
+  margin-left: -20%;
+  font-size: 35px;
+
+}
+.iconwithlabeimage{
+ position: relative;
+  width: 16%;
+  height: 0%;
+  z-index: 1;
+  top: 50%;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+.wellcomeimage{
+  position: relative;
+  z-index: 3;
+  
+}
+.sliderthumbparent{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  left: 44%;
+}
+.slderthumb{
+  background-color: black;
+  margin: 5px;
+  border-radius: 30%;
+}

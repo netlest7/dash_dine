@@ -1,0 +1,33 @@
+.dbpage{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 5%;
+    justify-content: center;
+        align-items: center;
+}
+.dbpage img{
+    width: 10%;
+    margin-top: 10%;
+}
+.billgrnratewithcaganame{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.dbpage hr{
+    background-color: black;
+    width: 100%;
+}
+.tabledb{
+    width: 100%;
+}
+.tabledb table{
+width: 100%;
+}.tabledbdes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10%;
+}

@@ -1,0 +1,48 @@
+
+@font-face {
+    font-family: 'Popins';
+    src: url('../../resorce/Poppins-SemiBold.ttf');
+    font-weight: 600; /* Specify the font weight */
+  }
+   
+ 
+    .googlepay{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10%;
+    }
+.phoneparint{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.BillFullName{
+    margin-top: 6%;
+}
+.BillFullName h3{
+    font-family:PopinsRegular ;
+    font-size: 20px
+
+}
+.react-tel-input .form-control {
+    position: relative;
+    font-size: 14px;
+    letter-spacing: .01rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 48px;
+    margin-left: 0;
+    background: #FFFFFF;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    line-height: 25px;
+    height: 56px;
+    width: 100%;
+    outline: none;
+}
+.phonenumer h3{
+    font-family:PopinsRegular ;
+    font-size: 20px
+}
