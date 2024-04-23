@@ -1,0 +1,208 @@
+.backcolor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #F5F5F5;
+  /* Semi-transparent black background */
+}
+
+.cafenamewithlogo {
+  display: flex;
+  flex-direction: row;
+}
+
+.softinsizeshadow {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  height: 6%;
+  background-color: white;
+  position: relative;
+  left: 5%;
+  margin-bottom: 4%;
+  border-radius: 100px;
+  box-shadow: inset 0 5px 14px -10px #255315, inset 0 -5px 12px -10px #255315;
+}
+
+.serchinput {
+  border: none;
+  outline: none;
+  background: none;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  font-size: inherit;
+  color: inherit;
+
+}
+
+.MPfood {
+  width: 100%;
+  height: 24%;
+}
+
+.customsilder {
+
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cafenamewithlogocontaner {
+
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+}
+
+.cartcircle {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  border-radius: 50%;
+  background-color: #E4B00D;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+}
+
+.cartcircle h3 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.swipswitch {
+  position: relative;
+  width: 90%;
+  height: 47px;
+  background-color: rgb(255, 255, 255);
+  margin-left: 22%;
+  right: 17%;
+  border-radius: 90px;
+}
+
+.swipswitchbuttoncontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 18%;
+  padding-right: 18%;
+  position: relative;
+  top: 25%;
+}
+
+.swipswitchbuttoncontainer input {
+  z-index: 5;
+  color: white;
+  font-family: Popinsbold;
+}
+
+.swipswitchbackground {
+  position: absolute;
+  width: 50%;
+  height: 47px;
+  background-color: #20402A;
+  border-radius: 90px;
+}
+
+@keyframes moveRightAnimation {
+  0% {
+    margin-left: 0%;
+  }
+
+  100% {
+    margin-left: 50%;
+  }
+}
+
+@keyframes moveBackAnimation {
+  0% {
+    margin-left: 50%;
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
+
+.play-animation {
+  animation: moveRightAnimation 0.5s ease forwards;
+}
+
+.play-back {
+  animation: moveBackAnimation 0.5s ease forwards;
+}
+
+.fooditemlist {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  overflow-x: scroll;
+}
+
+.fooditemlistbutton {
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 10px;
+  color: white;
+}
+
+.fooditemlistbutton:active {
+  background-color: #20402A;
+  /* New background color */
+}
+
+.listselectedfoodmenue {
+  display: flex;
+  flex-wrap: wrap; /* Wrap items to next row/column */
+  
+}
+
+.mfpdiv {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 auto;
+  background-color: #f80000;
+}
+
+.mfpimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensure the image covers the entire area of the container */
+
+}
+
+.mfp {
+  
+  width: 100%;
+  height: 28%;
+  position: relative;
+  overflow: hidden;
+
+}
+

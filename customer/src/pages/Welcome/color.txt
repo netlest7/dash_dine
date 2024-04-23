@@ -1,0 +1,39 @@
+import React from 'react'
+import { useState } from 'react'
+import Back from '@/components/Back'
+import "../home.css"
+import logo from "../../logo.png"
+import { Button  } from '@/components/ui/button'
+
+type Props = {
+
+
+}
+
+const Home = (props: Props) => {
+  const [count, setCount] = useState<number>(0);
+  
+  /*
+  return (
+    <div className='w-screen h-screen bg-[#FFFFFF] flex flex-col'>
+      
+      <Button variant="yellow" size="default" color="yellow">Yellow Button</Button>
+
+        
+    </div>
+  )
+  */
+  return (
+    <Back>
+     <div className='homebackdiv'>
+     <h1 className='cafaname'>NBC CAFA</h1>
+      <img src={logo} id='logo' />
+       <Button className='GS' variant="yellow" size="lg" color="yellow">Get Started</Button>
+       <h3 className='dd'>by dash dine food service</h3>
+     </div>
+     
+    </Back>
+  )
+}
+
+export default Home

@@ -1,0 +1,141 @@
+.FoodCardBack{
+    flex-basis: 50%; /* Each item takes up 50% of the container width */
+    max-width: 50%; /* Limit item width to 50% of container width */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 60px ; /* Add padding for spacing between items */
+    box-sizing: border-box; /* Include padding in item width */
+    border: 1px solid #cccccc1e; /* Optional: Add border for visualization */
+    box-sizing: border-box;
+    position: relative; 
+    border-radius: 12px;
+
+}
+.FoodcardImage {
+    width: 100%; /* Ensure image takes up full width of container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px;
+    display: block; /* Remove any default inline styling */
+  }
+  
+  .FoodcardDetails {
+    position: absolute; /* Position div absolutely */
+    top: 0; /* Align to the top of parent container */
+    left: 0; /* Align to the left of parent container */
+    width: 100%; /* Take up full width of parent container */
+
+    height: auto; /* Take up full height of parent container */
+    background-color: rgba(255, 255, 255, 0.123); /* Example background color with transparency */
+    padding: 10px; /* Add padding for content */
+    box-sizing: border-box; /* Include padding in width */
+    display: flex;
+    flex-direction: column;
+  }
+  .FoodcardDetailsstareoffer{
+    display: flex;
+    flex-direction: column;
+  }
+  .FoodcardDetailsstareoffer h3{
+    width: 70px;
+    background-color: #00000082;
+    padding-left: 9px;
+    color: orange;
+    margin-left: 10px;
+    font-size: 12px;
+    border-radius: 10px 10px 10px 0px;
+  }
+  .FoodcardDetailsstareoffer h2{
+    width: 37px;
+    background-color: #FFD607;
+    padding-left: 8px;
+    color: white;
+    margin-top: 3px;
+    margin-left: 10px;
+    font-size: 10px;
+    border-radius: 10px;
+    border: solid;
+    border-color: #FAAF36;
+    border-width: 1px;
+  }
+  .flfname{
+    position: relative;
+    top: 22px;
+    left: 20px;
+  }
+
+  .heartback{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.212);
+    margin-right: 5%;
+  }
+  .FoodcardDetailsfavofferstareflex{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+.flquantity{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: 65px;
+  align-content: center;
+ padding-left: 3px;
+ padding-right: 3px;
+ padding-top: 3px;
+ padding-bottom: 1px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  border: solid;
+  border-color: #B5B5B5;
+  border-width: 1px;
+  /* align-items: center; */
+  /* justify-items: center; */
+  justify-content: center;
+  margin-left: 55%;
+}
+.flquantity div h2{
+  position: relative;
+  top: -3px;
+  left: 4px;
+}
+
+.flquantity div{
+  width: 20px;
+  height: 20px;
+  background-color: #FFD607;
+  border-radius: 5px;
+}
+.flquantity h5{
+  font-size: 15px;
+  color: white;
+}
+
+.flofferback{
+  display: flex;
+  flex-direction: row;
+  justify-content: last baseline;
+  margin-top: 18%;
+  }
+  .flofferbookmark{
+    rotate: -90deg;
+    height: 22px;
+    position: relative;
+    top: 43%;
+    margin-top: 2%;
+  }
+  .flofferdiescont{
+      position: relative;
+    
+      width: 10%;
+      top:15%
+  }
+  .flofferprice{
+    font-size: 17px;
+    position: relative;
+    left: 10px;
+    top: -1px;
+    font-weight: bold;
+  
+  }

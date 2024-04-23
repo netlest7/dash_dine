@@ -1,0 +1,26 @@
+.offerback{
+display: flex;
+flex-direction: row;
+justify-content: last baseline;
+}
+.offerbookmark{
+rotate: -90deg;
+height: 40px;
+position: relative;
+margin-top: 0%;
+}
+.offerdiescont{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    top:15%
+}
+.offerprice{
+    font-size: 19px;
+    position: relative;
+    left: 10px;
+    top: 13px;
+    font-weight: bold;
+    color:rgb(0, 0, 0)
+
+}
