@@ -1,8 +1,23 @@
-import { timeStamp } from "console";
-import mongoose from "mongoose";
+import mongoose,{Document,Model,Schema} from "mongoose";
 import validator from 'validator';
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import Jwt from 'jsonwebtoken';
+require('dotenv').config()
+
+export interface IOwner extends Document{
+    owner_name :string;
+    owner_email :string;
+    owner_password: string;
+    owner_phoneNumber: string;
+    owner_aadharCard: number;
+    owner_isVerified: boolean
+    owner_paymentDetails: string;
+    owner_storeId: Array<{storeId:string}>;
+    comparePassword : (password: string) => Promise<boolean>;
+    accessToken: ()=> string;
+    refreshToken: ()=> string;
+}
+
 const ownerSchema = new mongoose.Schema({
 
    owner_name: {
@@ -39,14 +54,16 @@ const ownerSchema = new mongoose.Schema({
     {
         storeId : {
             type: String,
+
         }
     }
    ],
-   owner_paymentDetails : String,
+   owner_paymentDetails :{
+    type: String
+   }
 },{timestamps: true})
 
-ownerSchema.pre("save",async function(next) {
-    console.log("hinsdflsdf");
+ownerSchema.pre<IOwner>("save",async function(next) {
     
     if(!this.isModified('owner_password')){
             return next()
@@ -57,15 +74,19 @@ ownerSchema.pre("save",async function(next) {
 })
 
 
-// creating jwt token
-ownerSchema.methods.getJwtToken = async function(){
-    return await jwt.sign({id: this._id.toString()},process.env.OWNER_SECRET,{expiresIn: "60d"})
+// creating access token
+ownerSchema.methods.accessToken = function(){
+    return Jwt.sign({id: this._id.toString()},process.env.ACCESS_TOKEN || "",{expiresIn: "5m"})
+}
+// creating refresh token
+ownerSchema.methods.refreshToken = function(){
+    return Jwt.sign({id: this._id.toString()},process.env.REFRESH_TOKEN || "",{expiresIn: "30d"})
 }
 
 // comparing password
-ownerSchema.methods.comparePassword = async function(userEnteredPassword : String) {
-            return bcrypt.comparePassword(userEnteredPassword,this.owner_password);
+ownerSchema.methods.comparePassword = async function(userEnteredPassword : string) : Promise<boolean> {
+            return bcrypt.compare(userEnteredPassword,this.owner_password);
 }
 
-const Owner = mongoose.model("Owner",ownerSchema);
+const Owner: Model<IOwner> = mongoose.model<IOwner>("Owner",ownerSchema);
 export default Owner;
