@@ -100,8 +100,6 @@ console.log(CartList);
              className='googlepay'
              >
              <GooglePayButton
-
-
                     environment="TEST"
                     buttonType='pay'
                     buttonColor="white"

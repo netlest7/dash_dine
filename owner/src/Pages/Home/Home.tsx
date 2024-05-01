@@ -9,8 +9,15 @@ import why2 from "../../assets/why2.png"
 import why3 from "../../assets/why3.png"
 import PlanComponents from './HomeComponents/PlanComponents'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 const Home = () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const {owner} = useSelector( (state:any) => state.auth)
+
+   console.log(owner);
+   
     const navigate = useNavigate()
   return (
     <main className='relative w-screen h-screen bg-gradient-to-t from-gray-400/62 to-gray-900/62 flex flex-col items-center m-0 overflow-x-hidden'>
@@ -21,7 +28,11 @@ const Home = () => {
     {/* Navbar */}
     <nav className='absolute w-full flex top-0 p-5 justify-between pl-9 pr-9 bg-gradient-to-bl from-black via-transparent to-transparent border-none'>
     <img src={logo} width={150} height={50} className=''/>
-    <Button onClick={()=>navigate('/login')} className='bg-transparent border-2 hover:bg-gradient-to-b from-yellow-300 to-orange-400 hover:border-none hover:text-black'>Login</Button>
+    <Button onClick={()=>{
+        navigate("/login")
+    }} className='bg-transparent border-2 hover:bg-gradient-to-b from-yellow-300 to-orange-400 hover:border-none hover:text-black'>
+        Login
+    </Button>
     </nav>
 
     {/* Navbar */}

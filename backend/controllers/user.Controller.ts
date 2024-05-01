@@ -179,6 +179,8 @@ export const loginOwner = CatchAsyncError(async(req: Request , res: Response , n
 export const logoutOwner = CatchAsyncError(async(req: Request , res: Response , next: NextFunction) =>{
 
     try {
+        console.log("hello ji");
+        
         res.cookie("access_token","",{maxAge:1});
         res.cookie("refresh_token","",{maxAge:1});
         console.log(req.owner?._id);
@@ -291,7 +293,8 @@ export const me = CatchAsyncError(async(req: Request , res: Response , next: Nex
      await owner?.save();
      res.status(200).json({
         success: true,
-        owner
+        owner,
+
      })
  })
 

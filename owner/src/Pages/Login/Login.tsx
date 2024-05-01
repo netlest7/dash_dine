@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import loginBgImg from '../../assets/loginBG.png'
 import logo from "../../assets/logo.png"
+import {useLoginMutation} from "../../../redux/feature/auth/authApi";
 
 import {
     Card,
@@ -8,17 +9,51 @@ import {
   } from "@/components/ui/card"
   import { Input } from "@/components/ui/input"
 import { Button } from '@/components/ui/button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Checkbox } from "@/components/ui/checkbox"
+import { useSelector } from 'react-redux';
 
-
-
-  
 
 
 const Login = () => {
-    const navigation = useNavigate()
+    const navigation = useNavigate();
+    const [email,setEmail] = useState<string>("")
+    const [password,setPassword] = useState<string>("")
     const [showPassword,setShowPassword] = useState(false);
+    const [login,{isSuccess,error}] = useLoginMutation()
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const {owner} = useSelector( (state:any) => state.auth)
+
+
+    
+    const loginHandler = async() => {
+      const datas = {
+        owner_email: email,
+        owner_password: password
+      }
+      await login(datas);
+
+
+
+
+
+    }
+    useEffect(() => {
+       if(owner._id){
+        navigation("/menu")
+       }
+      
+     if(isSuccess){
+        navigation('/menu')
+     }
+     if(error){
+      if("data" in error){
+       console.log(error); 
+       }
+     }
+    }, [isSuccess,error])
+    
   return (
     <main className='relative w-screen h-screen flex gap-0 bg-black'>
         <section className='relative w-[50%] m-0 p-0'>
@@ -35,12 +70,12 @@ const Login = () => {
         <CardContent className='flex flex-col gap-6 w-full'>
         <div className='text-white w-full flex flex-col gap-3'>
         <label htmlFor="email">Email Id</label>
-        <Input placeholder='example@gmail.com' />
+        <Input placeholder='example@gmail.com' value={email} onChange={(e)=> setEmail(e.target.value)}/>
        </div>
 
        <div className='w-full text-white flex flex-col gap-3'>
        <label htmlFor="password">Password</label>
-        <Input placeholder='password@#$..' type={showPassword ? "text": "password"}/>
+        <Input placeholder='password@#$..'  value={password} onChange={(e)=> setPassword(e.target.value)} type={showPassword ? "text": "password"}/>
 
         <div className='flex gap-2'>
         <Checkbox className='border-white text-white'  onCheckedChange={() => setShowPassword((prev)=> !prev)}/>
@@ -53,7 +88,7 @@ const Login = () => {
         </div>
        </div>
 
-        <Button className='bg-gradient-to-b from-yellow-300 to-orange-400 border border-yellow-600 rounded-md text-black'>Get Started</Button>
+        <Button className={`bg-gradient-to-b from-yellow-300 to-orange-400 border border-yellow-600 rounded-md text-black`}  onClick={loginHandler}>Get Started</Button>
 
         <div className='flex text-white items-center gap-4'>
         <hr className='w-[45%]'/> 

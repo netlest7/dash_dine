@@ -4,8 +4,9 @@ import dotenv from "dotenv"
 import cors from 'cors'
 import { connectDatabase } from "./db/db";
 import userRouter from "./routes/user.Routes";
-import ErrorHandler from "./utils/ErrorHandler";
 import { ErrorMiddleware } from "./middleware/Error";
+import storeRouter from "./routes/store.Routes";
+import ordersRouter from "./routes/order.Routes";
 dotenv.config()
 
 
@@ -15,9 +16,15 @@ async function startServer() {
 
 app.use(express.json());
 app.use(cookieparser())
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173'],
+    credentials: true
+}))
+
 // routes
 app.use("/api/v1",userRouter);
+app.use("/api/v1",storeRouter);
+app.use("/api/v1",ordersRouter);
 
 app.get('/',(req,res)=>{
     res.status(200).json({

@@ -8,19 +8,17 @@ const userRouter = express.Router();
 userRouter.post('/signup',signUpUser)
 userRouter.post('/activateUser',activateOwner)
 userRouter.post('/loginOwner',loginOwner)
-userRouter.post('/activateToken',updateAccessToken)
-userRouter.get('/logout',isAuthenticatedUser,logoutOwner)
+userRouter.get('/activateToken',updateAccessToken)
+userRouter.post('/logout',isAuthenticatedUser,logoutOwner)
 
 userRouter.get('/getOwner/:id',isAuthenticatedUser,getOwnerById)
 userRouter.get('/getLoggedInUserDetails',isAuthenticatedUser,getDetailsOfLoggedInOwner)
-userRouter.put('/me',isAuthenticatedUser,me)
+userRouter.get('/me',isAuthenticatedUser,me)
 userRouter.put('/updatePassword',isAuthenticatedUser,updatePassword)
 
 //  Admin
 userRouter.get('/getAllOwners',isAuthenticatedUser,getAllOwners)
 userRouter.put('/updateOwnerByID/:id',isAuthenticatedUser,updateOwnerById)
-
-
 
 
 

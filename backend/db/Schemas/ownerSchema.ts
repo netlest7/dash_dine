@@ -12,6 +12,10 @@ export interface IOwner extends Document{
     owner_aadharCard: number;
     owner_isVerified: boolean
     owner_paymentDetails: string;
+    subscription: {
+        id: string | undefined,
+        status: string | undefined 
+    };
     owner_storeId: Array<{storeId:string}>;
     comparePassword : (password: string) => Promise<boolean>;
     accessToken: ()=> string;
@@ -50,17 +54,20 @@ const ownerSchema = new mongoose.Schema({
     type: Boolean,
     default: false
    },
+   subscription: {
+    id: String,
+    status: String
+   },
    owner_storeId: [
     {
         storeId : {
-            type: String,
-
+            type: String
         }
     }
    ],
    owner_paymentDetails :{
     type: String
-   }
+   },
 },{timestamps: true})
 
 ownerSchema.pre<IOwner>("save",async function(next) {
@@ -88,5 +95,5 @@ ownerSchema.methods.comparePassword = async function(userEnteredPassword : strin
             return bcrypt.compare(userEnteredPassword,this.owner_password);
 }
 
-const Owner: Model<IOwner> = mongoose.model<IOwner>("Owner",ownerSchema);
+const Owner = mongoose.model<IOwner>("Owner",ownerSchema);
 export default Owner;
