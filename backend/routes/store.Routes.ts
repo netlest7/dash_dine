@@ -18,7 +18,7 @@ storeRouter.put("/updateStore/:storeId",isAuthenticatedUser,updateStore)
 storeRouter.put("/storeOff/:storeId",isAuthenticatedUser,storeTurnOff)
 
 // get store by id
-storeRouter.post("/getStore/:storeId",getStoreById)
+storeRouter.get("/getStore/:storeId",getStoreById)
 
 //*************  Menu ****************
 
