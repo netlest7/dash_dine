@@ -32,7 +32,8 @@ export const createAndBuySubscription = CatchAsyncError(async(req:Request,res:Re
 
         res.status(200).json({
             success: true,
-            subscriptionId: subscription.id
+            subscriptionId: subscription.id,
+            order: subscription
         })
        }
 })
