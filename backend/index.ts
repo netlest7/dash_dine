@@ -7,6 +7,7 @@ import userRouter from "./routes/user.Routes";
 import { ErrorMiddleware } from "./middleware/Error";
 import storeRouter from "./routes/store.Routes";
 import ordersRouter from "./routes/order.Routes";
+import paymentRouter from "./routes/payment.Routes";
 dotenv.config()
 
 
@@ -25,10 +26,34 @@ app.use(cors({
 app.use("/api/v1",userRouter);
 app.use("/api/v1",storeRouter);
 app.use("/api/v1",ordersRouter);
-
+app.use("/api/v1",paymentRouter);
+    
 app.get('/',(req,res)=>{
     res.status(200).json({
         msg: "Successfull"
+    })
+})
+app.get("/api/v1/getkey",(req,res)=>{
+    return res.status(200).json({
+        key: process.env.RAZORPAY_API_KEY
+    })
+})
+
+app.get("/api/v1/regularPlanId",(req,res)=>{
+    return res.status(200).json({
+        regularKey: process.env.REGULAR_PLAN_ID
+    })
+})
+
+app.get("/api/v1/premiumPlanId",(req,res)=>{
+    return res.status(200).json({
+        premiumKey: process.env.PREMIUM_PLAN_ID
+    })
+})
+
+app.get("/api/v1/plus",(req,res)=>{
+    return res.status(200).json({
+        plusKey: process.env.PLUS_PLAN_ID
     })
 })
 
