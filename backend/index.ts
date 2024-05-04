@@ -18,7 +18,7 @@ async function startServer() {
 app.use(express.json());
 app.use(cookieparser())
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173','https://dash-dine-8bf6d.web.app'],
     credentials: true
 }))
 
